@@ -2,15 +2,8 @@ import { useState, useEffect } from 'react';
 import './Header.css'; 
 import logo from './assets/logo_cliente.png'
 function Header({ onOpenCart, onOpenProfile }) {
-  const [scrolled, setScrolled] = useState(false); // scrolled 
-
-  useEffect(() => {
-    const handleScroll = () => {
-      setScrolled(window.scrollY > 80);
-    };
-    window.addEventListener("scroll", handleScroll);
-    return () => window.removeEventListener("scroll", handleScroll);
-  }, []);
+  // Mantém a classe scrolled ativa desde o carregamento
+  const [scrolled] = useState(true);
 
   return (
     

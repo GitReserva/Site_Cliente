@@ -12,7 +12,7 @@ function Login({ onLogin }) {
 
   const handleSubmit = async (e) => {
     e.preventDefault()
-    setError('')
+    // não limpar imediatamente o erro anterior para evitar renderização vazia
     if (!nome || !senha) {
       setError('Nome e senha são obrigatórios.')
       return
@@ -80,7 +80,7 @@ function Login({ onLogin }) {
             />
           </label>
 
-          {error && <p className="login-error">{error}</p>}
+          <p className="login-error" aria-live="polite">{error || '\u00A0'}</p>
 
           <button type="submit" className="btn btn-login" disabled={loading}>
             {loading ? 'Verificando...' : 'Entrar'}

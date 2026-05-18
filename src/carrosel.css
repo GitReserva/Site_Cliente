@@ -170,12 +170,7 @@
 }
 
 .fade-right {
-  position: absolute;
-  right: 0;
-  top: 0;
-  bottom: 0;
-  width: 90px;
-  background: linear-gradient(to right, transparent, #0f0f0f);
+  display: none; /* fade removido: esconder elemento */
 }
 
 .menu-title::after

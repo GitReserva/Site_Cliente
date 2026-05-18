@@ -29,10 +29,18 @@ min-height: 100vh;
   color: #333; /* Define a cor do texto como cinza escuro */
 }
 
+/* Evita scroll horizontal inesperado em layouts responsivos */
+html, body {
+  overflow-x: hidden;
+}
+
 /* Estilo da seção de fundo/banner principal */
 .fundo {
   width: 100%;
-  min-height: 90vh;
+  /* espaço superior para o header fixo — garante que a imagem comece abaixo do header */
+  padding-top: 80px;
+  /* aumentar a área do herói para que seções abaixo (ex: promoções) não apareçam no carregamento */
+  min-height: 110vh;
   background-image: url('./assets/Sushi-Fundo.jpg');
   background-size: cover;
   background-position: center;
