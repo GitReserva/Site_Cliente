@@ -1,0 +1,916 @@
+:root {
+  --color-black: #080808;
+  --color-black-soft: #111111;
+  --color-card: #161616;
+
+  --color-white: #ffffff;
+  --color-white-soft: rgba(255, 255, 255, 0.72);
+  --color-white-muted: rgba(255, 255, 255, 0.45);
+
+  --color-red: #e50914;
+  --color-red-hover: #ff1b27;
+  --color-red-soft: rgba(229, 9, 20, 0.12);
+  --color-red-border: rgba(229, 9, 20, 0.6);
+}
+
+/* Remove margens e espaçamentos padrão do navegador em todos os elementos */
+* {
+  margin: 0; /* Zera a margem de todos os elementos */
+  padding: 0; /* Zera o padding de todos os elementos */
+  box-sizing: border-box; /* Faz o padding e border serem incluídos no tamanho total do elemento */
+}
+
+/* Estilo do corpo da página */
+body {
+ width: 100%;
+min-height: 100vh;
+  font-family: 'Arial', sans-serif; /* Define a fonte padrão como Arial */
+  background-color: #f4f4f4; /* Define cor de fundo cinza claro */
+  color: #333; /* Define a cor do texto como cinza escuro */
+}
+
+/* Estilo da seção de fundo/banner principal */
+.fundo {
+  width: 100%;
+  min-height: 90vh;
+  background-image: url('./assets/Sushi-Fundo.jpg');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+   filter: brightness(0.9);
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  overflow: hidden;
+}
+.fundo-content {
+   position: relative;
+  z-index: 2;
+  max-width: 850px;
+  padding: 40px 20px;
+  color: var(--color-white);
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+
+
+/* Estilo do título dentro da seção de fundo */
+.fundo h2 {
+    color: var(--color-white);
+  font-size: 2.8rem;
+  font-weight: 800;
+  margin: 0 0 16px;
+  text-shadow: 0 4px 18px rgba(0, 0, 0, 0.75);
+
+  position: static;
+  transform: none;
+}
+
+
+.hero-buttons {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 14px;
+  flex-wrap: wrap;
+}
+
+
+
+/* Imagem dentro do container */
+.container-sobre img {
+  width: 400px;
+  border-radius: 10px; /* cantos arredondados na imagem */
+  flex-shrink: 0; /* impede que a imagem encolha */
+}
+
+/* Container principal - tudo em um bloco só */
+.container-sobre {
+  display: flex; /* itens lado a lado */
+  align-items: center; /* alinha verticalmente imagem e texto */
+  gap: 50px; /* espaço entre imagem e texto */
+  max-width: 900px; /* largura máxima */
+  margin: auto; /* centraliza na página */
+  margin-bottom: 25px; /* espaço abaixo do card */
+  padding: 30px 20px; /* espaço interno */
+  background: var(--color-white); /* fundo escuro */
+  border-radius: 15px; /* bordas arredondadas */
+}
+
+/* Parágrafo dentro do container */
+.container-sobre p {
+  line-height: 1.6;        /* espaçamento entre linhas */
+  text-align: left;        /* alinha o texto à esquerda */
+  margin-bottom: 16px;     /* espaço entre os parágrafos */
+  color: var(--color-black);          /* cor do texto — mudei para branco pois o fundo é escuro */
+  font-size: 0.9em;        /* tamanho levemente menor */
+  flex-direction: column; /* um parágrafo abaixo do outro */
+}
+/* Título h2 global */
+h2 {
+  font-size: 2em; /* tamanho da fonte */
+  color: var(--color-black); /* cor do texto */
+  text-align: center; /* centraliza o título */
+  margin-top: 30px; /* espaço acima do título */
+}
+
+.texto-sobre .title{
+   font-style: italic;
+  font-size: 1.1em;
+  border-bottom: 1px solid var(--color-black); /* linha abaixo do título */
+  padding-bottom: 2px; /* espaço mínimo entre o texto e a linha */
+  margin-bottom: 16px; /* espaço entre a linha e os parágrafos abaixo */
+  display: flex; /* garante que a linha ocupe toda a largura */
+  margin-top: -20px;
+}
+
+/* Container que envolve o título e o carrossel */
+.container-Cardap {
+  padding: 60px 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center; /* Centraliza o conteúdo horizontalmente */
+  justify-content: center;
+  background-color: var(--color-black); /* Um fundo leve para destacar os cards */
+  min-height: 100vh; /* Faz a seção ocupar a tela toda se quiser */
+}
+
+/* Estilização do Título Cardápio */
+.container-Cardap h1 {
+  font-family: 'Arial', sans-serif; /* Ou a fonte do seu projeto */
+  font-size: 2.5rem;
+  color: var(--color-white);
+  margin-bottom: 40px; /* Espaço entre o título e o carrossel */
+  position: relative;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+}
+
+/* Detalhe visual: linha embaixo do título (opcional) */
+.container-Cardap h1::after {
+  content: "";
+  display: block;
+  width: 60px;
+  height: 4px;
+  background-color: #fc0a0a; /* Cor de destaque (ex: vermelho tomate) */
+  margin: 10px auto 0;
+  border-radius: 2px;
+}
+.btn-fundo,
+.btn-fundo2 {
+  min-width: 180px;
+  padding: 13px 24px;
+  border-radius: 8px;
+  font-size: 15px;
+  font-weight: 700;
+  text-align: center;
+  text-decoration: none;
+  cursor: pointer;
+  transition: 0.25s ease;
+
+  position: static;
+  transform: none;
+}
+
+.btn-fundo {
+  color: #ffffff;
+  border: 1px solid #e50914;
+  background: rgba(0, 0, 0, 0.35);
+}
+
+.btn-fundo:hover {
+  background: rgba(229, 9, 20, 0.18);
+  transform: translateY(-2px);
+}
+
+.btn-fundo2 {
+  color: #ffffff;
+  border: 1px solid #e50914;
+  background: #e50914;
+}
+
+.btn-fundo2:hover {
+  background: #ff1b27;
+  transform: translateY(-2px);
+  box-shadow: 0 12px 28px rgba(229, 9, 20, 0.32);
+}
+
+.modal-overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 9999;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 24px;
+  background: rgba(0, 0, 0, 0.78);
+  /* Overlay escuro que cobre toda a tela quando o modal está aberto */
+}
+
+.modal-container {
+  width: min(100%, 980px);
+  max-height: 90vh;
+  overflow-y: auto;
+  background: rgba(13, 13, 13, 0.98);
+  border: 1px solid rgba(229, 9, 20, 0.35);
+  border-radius: 28px;
+  box-shadow: 0 24px 70px rgba(0, 0, 0, 0.55);
+  padding: 36px;
+  color: #ffffff;
+  position: relative;
+  /* Caixa principal do modal com bordas e sombra para destacar do fundo */
+}
+
+.modal-close {
+  position: absolute;
+  top: 18px;
+  right: 18px;
+  width: 44px;
+  height: 44px;
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  background: rgba(0, 0, 0, 0.4);
+  color: #ffffff;
+  border-radius: 50%;
+  font-size: 1.8rem;
+  line-height: 1;
+  cursor: pointer;
+  transition: 0.2s ease;
+  /* Estilo do botão de fechar dentro do modal */
+}
+
+.modal-close:hover {
+  background: rgba(229, 9, 20, 0.9);
+}
+
+.modal-header h2 {
+  margin: 0 0 10px;
+  font-size: 2.4rem;
+}
+
+.modal-header p {
+  color: rgba(255, 255, 255, 0.78);
+  margin: 0 0 24px;
+  max-width: 720px;
+}
+
+.modal-body {
+  color: rgba(255, 255, 255, 0.88);
+  line-height: 1.8;
+  font-size: 1rem;
+}
+
+.modal-body p {
+  margin: 0;
+}
+
+.modal-status {
+  color: rgba(255, 255, 255, 0.72);
+  font-size: 1rem;
+  margin: 0;
+}
+
+.modal-error {
+  color: #ff8b8b;
+}
+
+.modal-items-grid {
+  display: grid;
+  gap: 20px;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  /* Grade responsiva para exibir vários itens do cardápio lado a lado */
+}
+
+.modal-item-card {
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 18px;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+}
+
+.modal-item-image {
+  width: 100%;
+  aspect-ratio: 16 / 10;
+  object-fit: cover;
+  display: block;
+}
+
+.modal-item-info {
+  padding: 18px;
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+}
+
+.modal-item-info h3 {
+  margin: 0 0 10px;
+  font-size: 1.15rem;
+}
+
+.modal-item-price {
+  color: var(--color-red);
+  margin: 0 0 10px;
+  font-weight: 700;
+}
+
+.modal-item-serve {
+  margin: 0;
+  color: rgba(255, 255, 255, 0.72);
+}
+
+.modal-item-add-button {
+  margin-top: 16px;
+  padding: 6px 10px;
+  border: 1px solid #e50914;
+  background: rgba(229, 9, 20, 0.12);
+  color: #e50914;
+  border-radius: 8px;
+  font-size: 0.8rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: 0.2s ease;
+  align-self: flex-end;
+}
+
+.modal-item-add-button:hover {
+  background: rgba(229, 9, 20, 0.25);
+  border-color: #ff1b27;
+  color: #ff1b27;
+}
+
+/* Estilos do carrinho: lista de itens e item em card horizontal */
+.cart-items-list {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.cart-item {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  padding: 12px;
+  background: rgba(255,255,255,0.03);
+  border: 1px solid rgba(255,255,255,0.06);
+  border-radius: 12px;
+}
+
+.cart-item-thumb {
+  width: 72px;
+  height: 72px;
+  object-fit: cover;
+  border-radius: 8px;
+  flex-shrink: 0;
+}
+
+.cart-item-info {
+  display: flex;
+  flex-direction: column;
+  align-items: center; /* centraliza nome/quantidade/valor horizontalmente */
+  justify-content: center;
+  gap: 6px;
+  flex: 1; /* ocupa o espaço restante */
+}
+
+.cart-item-name {
+  font-weight: 700;
+  font-size: 1rem;
+  color: #fff;
+}
+
+.cart-item-qty {
+  font-size: 0.95rem;
+  color: rgba(255,255,255,0.78);
+}
+
+.cart-item-price {
+  font-weight: 700;
+  color: var(--color-red);
+}
+
+.cart-item-unitprice {
+  font-size: 0.9rem;
+  color: rgba(255,255,255,0.66);
+}
+
+@media (max-width: 520px) {
+  .cart-item {
+    flex-direction: row;
+    align-items: center;
+    gap: 10px;
+  }
+  .cart-item-info {
+    align-items: flex-start;
+    text-align: left;
+  }
+}
+
+/* Toast (notificação rápida) */
+.toast-message {
+  position: fixed;
+  top: 18px;
+  left: 50%;
+  transform: translateX(-50%);
+  background: rgba(0,0,0,0.85);
+  color: #fff;
+  padding: 10px 16px;
+  border-radius: 10px;
+  font-weight: 700;
+  z-index: 13000;
+  box-shadow: 0 8px 30px rgba(0,0,0,0.6);
+  opacity: 0;
+  animation: toastIn 220ms ease-out forwards;
+}
+
+@keyframes toastIn {
+  from { transform: translateX(-50%) translateY(-6px); opacity: 0 }
+  to { transform: translateX(-50%) translateY(0); opacity: 1 }
+}
+
+/* Drawer (perfil) styles - slide from right */
+.drawer-overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 12000;
+  display: flex;
+  justify-content: flex-end;
+  background: rgba(0,0,0,0.45);
+  overflow: hidden;
+}
+
+.drawer-container {
+  width: 360px;
+  max-width: 100%;
+  max-height: 100vh;
+  background: var(--color-card);
+  box-shadow: -24px 0 48px rgba(0,0,0,0.6);
+  padding: 20px;
+  transform: translateX(0);
+  animation: slideInFromRight 260ms ease-out forwards;
+  position: relative;
+  overflow-y: auto;
+  -webkit-overflow-scrolling: touch;
+}
+
+.drawer-close {
+  position: absolute;
+  right: 12px;
+  top: 8px;
+  background: none;
+  border: none;
+  color: var(--color-white);
+  font-size: 20px;
+  cursor: pointer;
+}
+
+.drawer-header h3 {
+  margin: 0 0 8px 0;
+  color: var(--color-white);
+}
+
+.drawer-body {
+  margin-top: 14px;
+  color: var(--color-white-soft);
+}
+
+.profile-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 20px;
+}
+
+.profile-avatar {
+  width: 110px;
+  height: 110px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.08);
+  display: grid;
+  place-items: center;
+  border: 1px solid rgba(255, 255, 255, 0.12);
+}
+
+.profile-avatar svg {
+  width: 52px;
+  height: 52px;
+  color: var(--color-white);
+}
+
+.profile-display-name {
+  margin: 0;
+  font-size: 1.2rem;
+  font-weight: 700;
+  color: var(--color-white);
+}
+
+.profile-field {
+  width: 100%;
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 14px;
+  padding: 14px 16px;
+  display: grid;
+  gap: 6px;
+}
+
+.profile-field-label {
+  font-size: 0.8rem;
+  color: rgba(255, 255, 255, 0.68);
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+}
+
+.profile-logout-button {
+  width: 100%;
+  margin-top: 18px;
+  padding: 14px 18px;
+  border: none;
+  border-radius: 14px;
+  background: #e50914;
+  color: #ffffff;
+  font-size: 1rem;
+  font-weight: 700;
+  cursor: pointer;
+  transition: transform 0.2s ease, background-color 0.2s ease;
+}
+
+.profile-logout-button:hover {
+  background: #ff1b27;
+  transform: translateY(-1px);
+}
+
+.profile-field-value {
+  font-size: 1rem;
+  color: var(--color-white);
+  word-break: break-word;
+}
+
+.drawer-status {
+  color: var(--color-white-soft);
+}
+
+.drawer-error {
+  color: #ff8b8b;
+}
+
+@keyframes slideInFromRight {
+  from { transform: translateX(100%); }
+  to { transform: translateX(0); }
+}
+
+.reveal {
+  opacity: 0;
+  transform:  translateY(20px);
+}
+.reveal.active {
+  opacity: 1;
+  transform: translateY(0);
+  transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+}
+
+
+.container-promocoes {
+  background-color: var(--color-black); /* fundo quase preto */
+  padding: 40px 20px;        /* espaço interno: 40px em cima/baixo, 20px nas laterais */
+  color: white;              /* cor padrão do texto da seção */
+}
+
+.container-promocoes h1 {
+  text-align: center;   /* título centralizado */
+  margin-bottom: 30px;  /* espaço abaixo do título antes do grid */
+  font-family: serif;
+}
+
+
+.promocoes {
+  display: grid;
+  /* auto-fit: cria quantas colunas couberem
+     minmax(300px, 1fr): cada coluna tem no mínimo 300px,
+     e divide o espaço restante igualmente entre elas */
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+
+  gap: 20px;          /* espaço entre os cards */
+  max-width: 1200px;  /* largura máxima do grid */
+  margin: 0 auto;     /* centraliza o grid na página */
+    border: 1px solid rgba(229, 9, 20, 0.28);
+    border-radius: 18px;
+  box-shadow: 0 18px 45px rgba(255, 0, 0, 0.45);
+
+}
+
+/* 
+   CARD BASE
+   Estilos compartilhados entre todos os cards
+*/
+.promocao-card,
+.promocao-card1 {
+  border-radius: 12px;         /* cantos arredondados */
+  position: relative;          /* necessário para o overlay ::before funcionar */
+  overflow: hidden;            /* garante que a imagem não vaze fora do border-radius */
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;   /* empurra o texto para o rodapé do card */
+  padding: 24px;               /* espaço interno entre o texto e as bordas */
+  cursor: pointer;
+  background-size: 100%;       /* imagem começa no tamanho normal (sem zoom) */
+  background-position: center; /* centraliza a imagem */
+  background-repeat: no-repeat;
+
+  /* transições suaves no hover:
+     transform = movimento de subida
+     background-size = efeito de zoom na imagem */
+  transition: transform 0.3s ease, background-size 0.4s ease;
+}
+
+/* altura dos cards menores */
+.promocao-card  { height: 300px; }
+
+/* card destaque: mais alto e ocupa todas as colunas do grid */
+.promocao-card1 {
+  height: 350px;
+  grid-column: 1 / -1; /* começa na coluna 1 e vai até a última (-1) */
+}
+
+/* 
+   HOVER DOS CARDS
+   Sobe o card e aplica zoom suave na imagem
+*/
+.promocao-card:hover,
+.promocao-card1:hover {
+  transform: translateY(-5px); /* sobe 5px */
+  background-size: 110%;       /* zoom de 100% → 110% (suave por causa da transition) */
+}
+
+/* 
+   OVERLAY ESCURO (::before)
+   Camada escura sobre a imagem para o texto ficar legível.
+   Usando ::before em vez de filter: brightness()
+   porque o filter escurecia o texto também — aqui só a imagem escurece
+ */
+.promocao-card::before,
+.promocao-card1::before {
+  content: '';           /* obrigatório para pseudo-elementos aparecerem */
+  position: absolute;    /* cobre exatamente a área do card */
+  inset: 0;              /* equivale a top/right/bottom/left: 0 */
+  border-radius: 12px;   /* segue o arredondamento do card */
+
+  /* gradiente de preto opaco embaixo → transparente em cima
+     assim a imagem aparece no topo e o texto fica legível no rodapé */
+  background: linear-gradient(to top, rgba(0,0,0,0.80) 40%, transparent);
+
+  transition: opacity 0.3s ease; /* suaviza a mudança de opacidade no hover */
+}
+
+/* no hover, o overlay fica um pouco mais transparente
+   dando sensação de "iluminar" a imagem */
+.promocao-card:hover::before,
+.promocao-card1:hover::before {
+  opacity: 0.7;
+}
+
+/*
+   TEXTO DOS CARDS
+   z-index: 1 garante que o texto fique ACIMA do overlay ::before
+   sem isso o texto ficaria atrás da camada escura e sumia
+*/
+.promocao-card h2,
+.promocao-card1 h2,
+.promocao-card p,
+.promocao-card1 p {
+  position: relative; /* necessário para z-index funcionar */
+  z-index: 1;         /* fica acima do overlay (que não tem z-index definido = 0) */
+  margin: 0;
+}
+
+.promocao-card h2,
+.promocao-card1 h2 {
+  font-size: 1.4rem;
+  color: #fff;
+  margin-bottom: 8px; /* espaço entre título e parágrafo */
+}
+
+.promocao-card p,
+.promocao-card1 p {
+  font-size: 0.9rem;
+  color: #ccc;        /* cinza claro para diferenciar do título */
+  line-height: 1.5;
+  max-width: 500px;   /* evita linhas muito longas no card destaque */
+}
+
+/*
+   IMAGENS DE FUNDO — uma por card
+   Cada classe define a imagem do seu respectivo card
+ */
+
+/* card destaque */
+.promocao-card1 {
+  background-image: url('./assets/Card-Cardapio1.webp');
+}
+
+/* cards menores — troque os caminhos pelos seus arquivos */
+.card2 { background-image: url('src/assets/Card-Cardapio8.jpg'); }
+.card3 { background-image: url('assets/temaki.jpg'); }
+.card4 { background-image: url('assets/Card-Cardapio5.jpg'); }
+
+@media (max-width: 1024px) {
+  .container-sobre {
+    max-width: 90%;
+    gap: 30px;
+  }
+
+  .container-sobre img {
+    width: 340px;
+  }
+
+  .fundo h2 {
+    font-size: 2.3rem;
+  }
+}
+
+/* Tablets e celulares grandes */
+@media (max-width: 768px) {
+  body {
+    overflow-x: hidden;
+  }
+
+  .fundo {
+    min-height: 75vh;
+    background-attachment: scroll;
+    padding: 40px 16px;
+  }
+
+  .fundo-content {
+    padding: 30px 16px;
+    max-width: 100%;
+  }
+
+  .fundo h2 {
+    font-size: 2rem;
+    line-height: 1.2;
+  }
+
+  .hero-buttons {
+    width: 100%;
+    gap: 12px;
+  }
+
+  .btn-fundo,
+  .btn-fundo2 {
+    width: 100%;
+    max-width: 280px;
+    min-width: unset;
+  }
+
+  .container-sobre {
+    flex-direction: column;
+    text-align: center;
+    gap: 24px;
+    padding: 24px 16px;
+    max-width: 92%;
+  }
+
+  .container-sobre img {
+    width: 100%;
+    max-width: 360px;
+  }
+
+  .container-sobre p {
+    text-align: left;
+    font-size: 0.95rem;
+  }
+
+  .texto-sobre .title {
+    justify-content: center;
+    margin-top: 0;
+    text-align: center;
+  }
+
+  h2 {
+    font-size: 1.7rem;
+    padding: 0 16px;
+  }
+
+  .container-Cardap {
+    min-height: auto;
+    padding: 45px 16px;
+  }
+
+  .container-Cardap h1 {
+    font-size: 2rem;
+    text-align: center;
+  }
+
+  .container-promocoes {
+    padding: 35px 16px;
+  }
+
+  .promocoes {
+    grid-template-columns: 1fr;
+    max-width: 100%;
+    border-radius: 14px;
+    box-shadow: 0 12px 28px rgba(255, 0, 0, 0.28);
+  }
+
+  .promocao-card,
+  .promocao-card1 {
+    height: 280px;
+    padding: 20px;
+    background-size: cover;
+  }
+
+  .promocao-card1 {
+    height: 320px;
+  }
+
+  .promocao-card:hover,
+  .promocao-card1:hover {
+    transform: none;
+    background-size: cover;
+  }
+
+  .promocao-card h2,
+  .promocao-card1 h2 {
+    font-size: 1.25rem;
+  }
+
+  .promocao-card p,
+  .promocao-card1 p {
+    font-size: 0.9rem;
+  }
+}
+
+/* Celulares pequenos */
+@media (max-width: 480px) {
+  .fundo {
+    min-height: 70vh;
+    padding: 32px 12px;
+  }
+
+  .fundo h2 {
+    font-size: 1.65rem;
+  }
+
+  .fundo-content {
+    padding: 24px 12px;
+  }
+
+  .btn-fundo,
+  .btn-fundo2 {
+    font-size: 14px;
+    padding: 12px 18px;
+    max-width: 100%;
+  }
+
+  .container-sobre {
+    padding: 20px 14px;
+    border-radius: 12px;
+  }
+
+  .container-sobre img {
+    max-width: 100%;
+    border-radius: 8px;
+  }
+
+  .container-sobre p {
+    font-size: 0.9rem;
+    line-height: 1.55;
+  }
+
+  h2 {
+    font-size: 1.45rem;
+    margin-top: 24px;
+  }
+
+  .container-Cardap h1,
+  .container-promocoes h1 {
+    font-size: 1.6rem;
+  }
+
+  .promocoes {
+    gap: 16px;
+    border-radius: 12px;
+  }
+
+  .promocao-card,
+  .promocao-card1 {
+    height: 240px;
+    padding: 18px;
+  }
+
+  .promocao-card h2,
+  .promocao-card1 h2 {
+    font-size: 1.1rem;
+  }
+
+  .promocao-card p,
+  .promocao-card1 p {
+    font-size: 0.85rem;
+  }
+}

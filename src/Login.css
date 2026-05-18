@@ -1,0 +1,106 @@
+.login-page {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(180deg, var(--color-black-soft) 0%, var(--color-card) 100%);
+}
+
+.login-card {
+  width: 360px;
+  background: var(--color-card);
+  border-radius: 12px;
+  padding: 32px;
+  box-shadow: 0 8px 30px rgba(0,0,0,0.6);
+  text-align: center;
+  color: var(--color-white);
+  position: relative;
+  border: 1px solid transparent;
+}
+
+.login-card::after {
+  /* glow around the card using a blurred red shadow */
+  content: "";
+  position: absolute;
+  top: -6px;
+  left: -6px;
+  right: -6px;
+  bottom: -6px;
+  border-radius: 16px;
+  pointer-events: none;
+  box-shadow: 0 0 28px rgba(229,9,20,0.18);
+  opacity: 1;
+}
+
+.login-card:hover::after {
+  box-shadow: 0 0 40px rgba(229,9,20,0.28);
+}
+
+.login-logo {
+  width: 120px;
+  margin-bottom: 12px;
+}
+
+.login-card h2 {
+  margin: 0 0 18px 0;
+  font-size: 1.6rem;
+  color: var(--color-white);
+}
+
+.login-form {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.login-form label {
+  display: flex;
+  flex-direction: column;
+  font-size: 0.9rem;
+  color: var(--color-white-soft);
+  text-align: left;
+}
+
+.login-form input {
+  margin-top: 6px;
+  padding: 10px 12px;
+  border: 1px solid var(--color-black-soft);
+  background: var(--color-black-soft);
+  color: var(--color-white);
+  border-radius: 8px;
+  font-size: 1rem;
+}
+
+.login-form input::placeholder {
+  color: var(--color-white-muted);
+}
+
+.btn-login {
+  margin-top: 6px;
+  padding: 10px 14px;
+  background: var(--color-red);
+  color: var(--color-white);
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  font-weight: 700;
+}
+
+.btn-login:hover {
+  opacity: 0.95;
+}
+
+.login-error {
+  color: var(--color-red);
+  margin-top: 6px;
+  font-weight: 600;
+  text-align: left;
+}
+
+/* foco vermelho ao clicar nos campos, substitui o brilho padrão do navegador */
+.login-form input:focus,
+.login-form input:focus-visible {
+  outline: none;
+  border-color: var(--color-red);
+  box-shadow: 0 0 24px rgba(229, 9, 20, 0.18);
+}

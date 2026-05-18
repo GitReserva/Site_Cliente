@@ -1,0 +1,346 @@
+* { box-sizing: border-box; margin: 0; padding: 0; }
+  
+  :root {
+    --cream: #f5f0e8;
+    --dark: #1a1a1a;
+    --teal: #3b7a6e;
+    --teal-light: #4e9d8d;
+    --gold: #c9a84c;
+    --text-muted: #666;
+    --color-red: #e50914;
+  }
+
+  body {
+    background: var(--cream);
+    font-family: 'DM Sans', sans-serif;
+    color: var(--dark);
+  }
+
+  .section {
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 48px 24px;
+ 
+  }
+
+  /* Header */
+  .section-title {
+    text-align: center;
+    font-family: 'Noto Serif JP', serif;
+    font-size: 1.5rem;
+    font-weight: 700;
+    letter-spacing: 0.08em;
+    margin-bottom: 28px;
+    position: relative;
+  }
+  .section-title::before, .section-title::after {
+    content: '';
+    display: inline-block;
+    width: 40px;
+    height: 1px;
+    background: var(--color-red);
+    vertical-align: middle;
+    margin: 0 12px;
+  }
+
+  /* Promo Banner */
+  .promo-banner {
+    background: linear-gradient(135deg, var(--teal) 0%, var(--teal-light) 100%);
+    border-radius: 12px;
+    padding: 24px 32px;
+    text-align: center;
+    margin-bottom: 20px;
+    color: white;
+  }
+  .promo-label {
+    font-size: 0.65rem;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    opacity: 0.85;
+    margin-bottom: 6px;
+  }
+  .promo-price {
+    font-family: 'Noto Serif JP', serif;
+    font-size: 2rem;
+    font-weight: 700;
+    margin-bottom: 6px;
+  }
+  .promo-price span { font-size: 1.1rem; font-weight: 300; }
+  .promo-desc {
+    font-size: 0.75rem;
+    opacity: 0.8;
+  }
+
+  /* Price Options */
+  .price-options {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1px;
+    background: #ddd;
+    border-radius: 10px;
+    overflow: hidden;
+    margin-bottom: 12px;
+  }
+  .price-opt {
+    background: white;
+    padding: 14px 10px;
+    text-align: center;
+  }
+  .price-opt-label {
+    font-size: 0.65rem;
+    color: var(--text-muted);
+    letter-spacing: 0.05em;
+    margin-bottom: 4px;
+  }
+  .price-opt-value {
+    font-size: 1rem;
+    font-weight: 600;
+    color: var(--teal);
+  }
+  .price-opt-value span { font-size: 0.7rem; font-weight: 400; }
+
+  /* Tags */
+  .tags {
+    display: flex;
+    gap: 12px;
+    margin-bottom: 32px;
+    font-size: 0.72rem;
+  }
+  .tag { display: flex; align-items: center; gap: 4px; }
+  .tag-dot { width: 8px; height: 8px; border-radius: 50%; }
+  .tag-yellow .tag-dot { background: var(--gold); }
+  .tag-green .tag-dot { background: var(--teal); }
+
+  /* Grid */
+  .units-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 14px;
+    
+  }
+
+  .unit-card {
+    border-radius: 10px;
+    overflow: hidden;
+    position: relative; 
+    cursor: pointer;
+    aspect-ratio: 4/3;
+    transition: transform 0.25s ease, box-shadow 0.25s ease;
+  }
+  .unit-card:hover { transform: translateY(-3px); box-shadow: 0 12px 32px rgba(0,0,0,0.18); }
+
+  .unit-bg {
+    width: 100%; height: 100%;
+    object-fit: cover;
+    display: block;
+  }
+
+ 
+  .unit-placeholder {
+    width: 100%; height: 100%;
+    display: flex;
+    align-items: flex-end;
+  }
+  .bg-1 { background: linear-gradient(160deg, #2d5a4e 0%, #1a3330 100%); }
+  .bg-2 { background: linear-gradient(160deg, #3d6b5e 0%, #253f38 100%); }
+  .bg-3 { background: linear-gradient(160deg, #1e3a34 0%, #0e1e1b 100%); }
+  .bg-4 { background: linear-gradient(160deg, #2a5046 0%, #162b27 100%); }
+  .bg-5 { background: linear-gradient(160deg, #34604f 0%, #1c3028 100%); }
+  .bg-6 { background: linear-gradient(160deg, #1f4038 0%, #0f1e1b 100%); }
+  .bg-7 { background: linear-gradient(160deg, #293f38 0%, #14211e 100%); }
+  .bg-8 { background: linear-gradient(160deg, #3a5e50 0%, #1d3029 100%); }
+  .bg-9 { background: linear-gradient(160deg, #2c4e44 0%, #152824 100%); }
+  .bg-10 { background: linear-gradient(160deg, #253d36 0%, #111f1c 100%); }
+  .bg-11 { background: linear-gradient(160deg, #31584a 0%, #182e28 100%); }
+
+  /* Overlay */
+  .unit-overlay {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(to top, rgba(0,0,0,0.82) 0%, rgba(0,0,0,0.1) 55%, transparent 100%);
+    padding: 12px;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+  }
+
+  .unit-name {
+    font-family: 'Noto Serif JP', serif;
+    font-size: 0.85rem;
+    font-weight: 700;
+    color: white;
+    margin-bottom: 3px;
+  }
+  .unit-address {
+    font-size: 0.6rem;
+    color: rgba(255,255,255,0.7);
+    line-height: 1.4;
+    margin-bottom: 3px;
+  }
+  .unit-phone {
+    font-size: 0.6rem;
+    color: rgba(255,255,255,0.55);
+  }
+
+  .unit-logo {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    font-family: 'Noto Serif JP', serif;
+    font-size: 0.55rem;
+    letter-spacing: 0.15em;
+    color: rgba(255,255,255,0.5);
+    text-transform: uppercase;
+  }
+
+
+.unit-placeholder.bg-1 {
+  background-image:  url(assets/luz-esta.png);
+    background-size: cover;     /* preenche todo o elemento */
+  background-position: center; /* centraliza */
+  background-repeat: no-repeat; /* não repete */
+  filter: brightness(0.5);
+}
+
+.unit-placeholder.bg-2 {
+  background-image:  url(assets/julio-esta.png);
+  background-size: cover;     /* preenche todo o elemento */
+  background-position: center; /* centraliza */
+  background-repeat: no-repeat; /* não repete */
+  filter: brightness(0.5);
+}
+.unit-placeholder.bg-3 {
+  background-image:  url(assets/bras-esta.png);
+  background-size: cover;     /* preenche todo o elemento */
+  background-position: center; /* centraliza */
+  background-repeat: no-repeat; /* não repete */
+  filter: brightness(0.5);
+
+}
+.unit-placeholder.bg-4 {
+  background-image:  url(assets/pinheiros-esta.png);
+  background-size: cover;     /* preenche todo o elemento */
+  background-position: center; /* centraliza */
+  background-repeat: no-repeat; /* não repete */
+  filter: brightness(0.5);
+
+}
+.unit-placeholder.bg-5 {
+  background-image:  url(assets/pirituba-esta.png);
+  background-size: cover;     /* preenche todo o elemento */
+  background-position: center; /* centraliza */
+  background-repeat: no-repeat; /* não repete */
+  filter: brightness(0.5);
+
+}
+.unit-placeholder.bg-6 {
+  background-image:  url(assets/morumbi-esta.jpeg);
+  background-size: cover;     /* preenche todo o elemento */
+  background-position: center; /* centraliza */
+  background-repeat: no-repeat; /* não repete */
+  filter: brightness(0.5);
+
+}
+.unit-placeholder.bg-7 {
+  background-image:  url(assets/Ipiriranga-esta.jpeg);
+  background-size: cover;     /* preenche todo o elemento */
+  background-position: center; /* centraliza */
+  background-repeat: no-repeat; /* não repete */
+  filter: brightness(0.5);
+
+}
+.unit-placeholder.bg-8 {
+  background-image:  url(assets/liberdade-esta.jpeg);
+  background-size: cover;     /* preenche todo o elemento */
+  background-position: center; /* centraliza */
+  background-repeat: no-repeat; /* não repete */
+  filter: brightness(0.5);
+
+}
+.unit-placeholder.bg-9 {
+  background-image:  url(assets/jundiai-esta.jpeg);
+  background-size: cover;     /* preenche todo o elemento */
+  background-position: center; /* centraliza */
+  background-repeat: no-repeat; /* não repete */
+  filter: brightness(0.5);
+
+}
+.unit-placeholder.bg-10 {
+  background-image:  url(assets/tatuape-esta.jpeg);
+  background-size: cover;     /* preenche todo o elemento */
+  background-position: center; /* centraliza */
+  background-repeat: no-repeat; /* não repete */
+  filter: brightness(0.5);
+}
+.unit-placeholder.bg-11 {
+  background-image:  url(assets/Liberdade2-esta.jpeg);
+  background-size: cover;     /* preenche todo o elemento */
+  background-position: center; /* centraliza */
+  background-repeat: no-repeat; /* não repete */
+  filter: brightness(0.5);
+  
+}
+
+
+
+.botoes button{
+  background: #f47c3c;
+  border: none;
+  border-radius: 20px;
+  padding: 8px 14px;
+  color: white;
+  cursor: pointer;
+  opacity: 0;
+  transform: translateY(20px);
+  transition: 0.3s;
+}
+.unit-card:hover .botoes button:nth-child(1) { /* nth-child(1) siginifica primeiro filho e É um seletor que pega um elemento com base na posição dele dentro do pai que é */
+  opacity: 1; /* controla a transparência de um elemento, aceitando valores numéricos entre 0 (totalmente transparente) e 1 (totalmente opaco/sólido), ou percentuais de 0% a 100%.  Ao definir um valor diferente de 1, o efeito aplica-se a todo o elemento, incluindo seus filhos e conteúdo, o que pode tornar o texto interno difícil de ler se o fundo for escuro. */
+  transform: translateY(0);
+  transition-delay: 0.1s;
+}
+.unit-card:hover .botoes button:nth-child(2) {
+  opacity: 1;
+  transform: translateY(0);
+  transition-delay: 0.2s;
+}
+
+.unit-card:hover .botoes button:nth-child(3) {
+  opacity: 1;
+  transform: translateY(0);
+  transition-delay: 0.3s;
+}
+
+.unit1:hover {
+  filter: brightness(1.5);
+}
+.unit2:hover {
+  filter: brightness(1.5);
+}
+.unit3:hover {
+  filter: brightness(1.5);
+}
+.unit4:hover {
+  filter: brightness(1.5);
+}
+.unit5:hover {
+  filter: brightness(1.5);
+}
+.unit6:hover {
+  filter: brightness(1.5);
+}
+.unit7:hover {
+  filter: brightness(1.5);
+}
+.unit8:hover {
+  filter: brightness(1.5);
+}
+.unit9:hover {
+  filter: brightness(1.5);
+}
+.unit10:hover {
+  filter: brightness(1.5);
+}
+.unit11:hover {
+  filter: brightness(1.5);
+}
